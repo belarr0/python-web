@@ -8,6 +8,9 @@ import asyncio
 import concurrent.futures
 from time import time
 
+import requests
+from time import time
+
 # def print_numbers():
 #     for i in range(1, 6):
 #         print(f"Number: {i}")
@@ -96,6 +99,7 @@ from time import time
 #         print(r)
 
 
+<<<<<<< HEAD
 
 async def baz() -> str:
     print('Before Sleep')
@@ -113,5 +117,44 @@ async def main():
 
 if __name__ == '__main__':
     asyncio.run(main())
+=======
+# urls = ['http://www.google.com', 'http://www.python.org', 'http://duckduckgo.com']
+#
+# def preview_fetch(url):
+#     r = requests.get(url)
+#     return url, r.text[:150]
+#
+#
+# if __name__ == '__main__':
+#     start = time()
+#     for url in urls:
+#         r = preview_fetch(url)
+#         print(r)
+#     print(time() - start)
+
+
+# import asyncio
+# import websockets
+#
+#
+# async def handler(websocket, path):
+#     data = await websocket.recv()
+#     reply = f"Data recieved as:  {data}!"
+#     print(reply)
+#     await websocket.send(reply)
+#
+#
+# async def main():
+#     async with websockets.serve(handler, "localhost", 8000):
+#         await asyncio.Future()  # run forever
+#
+# if __name__ == '__main__':
+#     asyncio.run(main())
+
+
+print(['item'+ str(i) for i in range(3) if i == 2])
+
+
+>>>>>>> ca91882c97f29695aec9c6a5bd157e2f7e26c912
 
 
