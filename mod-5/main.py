@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import asyncio
 from currency_api import CurrencyAPI
 from currency_service import CurrencyService
@@ -25,4 +23,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
->>>>>>> ca91882c97f29695aec9c6a5bd157e2f7e26c912

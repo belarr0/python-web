@@ -18,15 +18,18 @@ async def final_fetch(dates, fin_curr):
     for date in dates:
         data = await fetch_api_data_by_date(date)
         if data is not None:
-            print(f"Exchange rates for {date} (USD):")
+            print(f"Exchange rates for {date} ({fin_curr}]):")
             for item in data['exchangeRate']:
-                if item['currency'] == 'USD':
-                    print(f"USD - Buy: {item.get('purchaseRate', 'N/A')}, Sell: {item.get('saleRate', 'N/A')}")
+                if item['currency'] == fin_curr:
+                    print(f"{fin_curr} - Buy: {item.get('purchaseRate', 'N/A')}, Sell: {item.get('saleRate', 'N/A')}")
+                else:
+                    print(f"No data found for '{fin_curr}'")
+                    break
         else:
             print(f"No data found for {date}")
 
 async def main():
-    date_what_need = int(input("Enter day amount(1-10): "))
+    date_what_need = int(input("Enter day amount (1-10): "))
     try:
         if date_what_need < 1 or date_what_need > 10:
             print("1-10 bro, wtf?")
@@ -34,12 +37,12 @@ async def main():
     except ValueError:
         return
 
-    currency_input = input("Enter currency what u need(USD as default): ")
-    final_currency = [curr.strip().upper() for curr in currency_input] if currency_input else 'USD'
+    currency_input = input("Enter currency what u need (USD as default): ")
+    final_currency = currency_input.upper().strip() if currency_input else 'USD'
 
 
     dates = await get_last_three_days(date_what_need)
-    final_fetch(dates, final_currency)
+    final = await final_fetch(dates, final_currency)  #continue here
 
 
 
